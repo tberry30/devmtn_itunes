@@ -22,7 +22,7 @@ app.controller('mainCtrl', function($scope, itunesService){
 
   //First inject itunesService into your controller.
 
-    //code here
+    //Code here : DONE ABOVE!!!
 
 
   //Now write a function that will call the method on the itunesService that is responsible for getting the data from iTunes, whenever the user clicks the submit button
@@ -30,11 +30,16 @@ app.controller('mainCtrl', function($scope, itunesService){
   //Also note that that method should be retuning a promise, so you could use .then in this function.
     
     //Code here
-
+    $scope.getSongData = function() {
+        var searchItem = $scope.artist;
+        itunesService.getiTunesData(searchItem).then(function(response) {
+          $scope.songData = response;
+        });
+    }
 
   //Check that the above method is working by entering a name into the input field on your web app, and then console.log the result
 
-    //Code here
+    //Code here - TESTED IN HTML and console.log in function above!!!
 
 
   //If everything worked you should see a huge array of objects inside your console. That's great! But unfortunately that's not what ng-grid is expecting. What you need to do now
